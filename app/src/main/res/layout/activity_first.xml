@@ -6,22 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.adviewer.gc.ads.FirstActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/applovin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:text="AppLovin"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="25dp" />
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/admob"
@@ -29,6 +21,33 @@
         android:layout_height="wrap_content"
         android:text="AdMob"
         android:layout_alignEnd="@+id/applovin"
-        android:layout_below="@+id/applovin" />
+        android:layout_below="@+id/applovin"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/mopub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MoPub"
+        android:layout_alignEnd="@+id/applovin"
+        android:layout_below="@+id/admob"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/vungle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vungle"
+        android:layout_alignEnd="@+id/applovin"
+        android:layout_below="@+id/mopub"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Test Ads from different Advertising network companies below.  More ad networks and different kinds of ads coming soon." />
 
 </RelativeLayout>

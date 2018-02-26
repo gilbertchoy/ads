@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.adviewer.gc.ads">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="applovin.sdk.key"
             android:value="zWx_1M5MQM4vp7UfTc8rJCaPu6aACLiAte9u_EEPaJJORp3vPCkkOJ8GQiRc38nwnxon91BlLV7nIBfiNOQnhZ" />
@@ -31,16 +35,54 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_applovin"
             android:theme="@style/FullscreenTheme" />
+        <!-- applovin -->
         <activity
             android:name="com.applovin.adview.AppLovinInterstitialActivity"
             android:configChanges="orientation|screenSize" />
         <activity
             android:name="com.applovin.adview.AppLovinConfirmationActivity"
             android:configChanges="orientation|screenSize" />
+        <!-- vungle -->
+        <activity android:name="com.vungle.publisher.VideoFullScreenAdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.vungle.publisher.MraidFullScreenAdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.vungle.publisher.FlexViewAdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            tools:replace="android:theme"/>
+        <!-- mopub -->
+        <activity
+            android:name="com.mopub.mobileads.MoPubActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.mobileads.MraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.mobileads.RewardedMraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".AdmobActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_admob"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".MopubActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_mopub"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".VungleActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_vungle"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

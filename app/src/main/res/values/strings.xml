@@ -6,4 +6,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_admob">AdmobActivity</string>
+
+    <string name="title_activity_mopub">MopubActivity</string>
+
+    <string name="title_activity_vungle">VungleActivity</string>
 </resources>

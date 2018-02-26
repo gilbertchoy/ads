@@ -34,7 +34,7 @@ public class ApplovinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applovin);
-
+        getSupportActionBar().hide();
         loadAdBtn = findViewById(R.id.loadAd);
         playAdBtn = findViewById(R.id.playAd);
 

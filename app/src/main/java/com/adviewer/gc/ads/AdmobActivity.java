@@ -28,6 +28,7 @@ public class AdmobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_admob);
+        getSupportActionBar().hide();
         loadAdBtn = findViewById(R.id.loadAd);
         playAdBtn = findViewById(R.id.playAd);
 
