@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -21,6 +23,8 @@ public class AdmobActivity extends AppCompatActivity {
     private InterstitialAd mInterstitialAd;
     private Button loadAdBtn;
     private Button playAdBtn;
+    private TextView logTextView;
+    private ScrollView scrollView;
     private Context context = this;
 
     @Override
@@ -28,9 +32,11 @@ public class AdmobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_admob);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         loadAdBtn = findViewById(R.id.loadAd);
         playAdBtn = findViewById(R.id.playAd);
+        logTextView = findViewById(R.id.log1);
+        scrollView = findViewById(R.id.scrollview1);
 
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         MobileAds.initialize(this, "ca-app-pub-6760835969070814~5912740615");
@@ -42,48 +48,64 @@ public class AdmobActivity extends AppCompatActivity {
 
         loadAdBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                log("Load Ad Button Pressed");
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
 
         playAdBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                log("Play Ad Button Pressed");
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {
+                    log("Ad not loaded yet");
                     Log.d("TAG", "The interstitial wasn't loaded yet.");
                 }
+
             }
         });
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
+                log("onAdLoaded");
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
+                log("onAdFailedToLoad");
             }
 
             @Override
             public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
+                log("onAdOpened");
             }
 
             @Override
             public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
+                log("onAdLeftApplication");
             }
 
             @Override
             public void onAdClosed() {
-                // Code to be executed when when the interstitial ad is closed.
+                log("onAdClosed");
             }
         });
 
     }
 
+    private void log(CharSequence text) {
+
+        if (logTextView.length() > 0)
+            logTextView.append("\n");
+        logTextView.append(text);
+
+        scrollView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(View.FOCUS_DOWN);
+            }
+        }, 500);
+    }
 }

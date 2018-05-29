@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.applovin.adview.AppLovinInterstitialAd;
 import com.applovin.adview.AppLovinInterstitialAdDialog;
@@ -22,41 +24,59 @@ import com.applovin.sdk.AppLovinAdSize;
 import com.applovin.sdk.AppLovinAdVideoPlaybackListener;
 import com.applovin.sdk.AppLovinSdk;
 
+import org.w3c.dom.Text;
+
+
+//adReceived listener causes textview to not auto resize
+
 public class ApplovinActivity extends AppCompatActivity {
 
     private AppLovinAd loadedAd;
     private Button loadAdBtn;
     private Button playAdBtn;
-    private Context context = this;
+    private Context context;
+    private ScrollView scrollView;
     private AppLovinInterstitialAdDialog interstitialAd;
+    private TextView logTextView;
+    private TextView test;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_applovin);
-        getSupportActionBar().hide();
         loadAdBtn = findViewById(R.id.loadAd);
         playAdBtn = findViewById(R.id.playAd);
+        logTextView = findViewById(R.id.logView);
 
-        AppLovinSdk.initializeSdk(this);
+        context = this;
 
-        interstitialAd = AppLovinInterstitialAd.create( AppLovinSdk.getInstance( this ), this );
+        AppLovinSdk.initializeSdk(context);
 
+        interstitialAd = AppLovinInterstitialAd.create( AppLovinSdk.getInstance( context ), context );
 
         loadAdBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                logTextView.append("LOAD AD button pressed \n");
                 AppLovinSdk.getInstance( context ).getAdService().loadNextAd( AppLovinAdSize.INTERSTITIAL, new AppLovinAdLoadListener()
                 {
                     @Override
                     public void adReceived(AppLovinAd ad)
                     {
+                        logTextView.append("adreceived \n");
+                        Log.d("applovin","berttest adReceived");
                         loadedAd = ad;
                     }
 
                     @Override
                     public void failedToReceiveAd(int errorCode)
                     {
-                        // Look at AppLovinErrorCodes.java for list of error codes.
+                        logTextView.append("failedToReceiveAd \n");
                     }
                 } );
             }
@@ -64,9 +84,13 @@ public class ApplovinActivity extends AppCompatActivity {
 
         playAdBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                logTextView.append("PLAY AD button pressed \n");
                 if ( loadedAd != null )
                 {
                     interstitialAd.showAndRender( loadedAd );
+                }
+                else{
+                    logTextView.append("failed playing ad \n");
                 }
             }
         });
@@ -77,13 +101,15 @@ public class ApplovinActivity extends AppCompatActivity {
             @Override
             public void adDisplayed(AppLovinAd appLovinAd)
             {
-                Log.d("applovin", "Interstitial Displayed" );
+                logTextView.append("adDisplayed \n");
+                Log.d("applovin", "berttest Interstitial Displayed" );
             }
 
             @Override
             public void adHidden(AppLovinAd appLovinAd)
             {
-                Log.d( "applovin","Interstitial Hidden" );
+                logTextView.append("adHidden \n");
+                Log.d( "applovin","berttest Interstitial Hidden" );
             }
         } );
 
@@ -92,7 +118,8 @@ public class ApplovinActivity extends AppCompatActivity {
             @Override
             public void adClicked(AppLovinAd appLovinAd)
             {
-                Log.d( "applovin","Interstitial Clicked" );
+                logTextView.append("adClicked \n");
+                Log.d( "applovin","berttest Interstitial Clicked" );
             }
         } );
 
@@ -102,17 +129,16 @@ public class ApplovinActivity extends AppCompatActivity {
             @Override
             public void videoPlaybackBegan(AppLovinAd appLovinAd)
             {
-                Log.d( "applovin","Video Started" );
+                logTextView.append("videoPlaybackBegan \n");
+                Log.d( "applovin","berttest Video Started" );
             }
 
             @Override
             public void videoPlaybackEnded(AppLovinAd appLovinAd, double percentViewed, boolean wasFullyViewed)
             {
-                Log.d( "applovin","applovin Video Ended" );
+                logTextView.append("videoPlaybackEnded \n");
+                Log.d( "applovin","berttest applovin Video Ended" );
             }
         } );
     }
-
-
-
 }

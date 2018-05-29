@@ -7,12 +7,12 @@
     tools:context="com.adviewer.gc.ads.FirstActivity">
 
     <Button
-        android:id="@+id/applovin"
+        android:id="@+id/vungle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="AppLovin"
+        android:text="Vungle"
         android:textAllCaps="false" />
 
     <Button
@@ -20,26 +20,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AdMob"
-        android:layout_alignEnd="@+id/applovin"
-        android:layout_below="@+id/applovin"
+        android:layout_alignEnd="@+id/vungle"
+        android:layout_below="@+id/vungle"
         android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/mopub"
+        android:id="@+id/applovin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MoPub"
-        android:layout_alignEnd="@+id/applovin"
+        android:text="Applovin"
+        android:layout_alignEnd="@+id/vungle"
         android:layout_below="@+id/admob"
-        android:textAllCaps="false"/>
-
-    <Button
-        android:id="@+id/vungle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vungle"
-        android:layout_alignEnd="@+id/applovin"
-        android:layout_below="@+id/mopub"
         android:textAllCaps="false"/>
 
     <TextView

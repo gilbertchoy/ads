@@ -2,7 +2,6 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#0099cc"
 tools:context="com.adviewer.gc.ads.AdmobActivity">
 
 <Button
@@ -22,5 +21,22 @@ tools:context="com.adviewer.gc.ads.AdmobActivity">
     android:layout_below="@+id/loadAd"
     android:layout_marginTop="36dp"
     android:text="play ad" />
+
+    <ScrollView
+        android:id="@+id/scrollview1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="300dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/log1"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:text="log" />
+    </ScrollView>
 
 </RelativeLayout>

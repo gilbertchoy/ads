@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ads</string>
+    <string name="app_name">Ad Watcher</string>
 
     <string name="title_activity_applovin">ApplovinActivity</string>
     <string name="dummy_button">Dummy Button</string>
