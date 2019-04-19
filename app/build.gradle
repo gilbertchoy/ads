@@ -38,11 +38,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    compile 'com.github.vungle:vungle-android-sdk:5.3.2'
+    implementation 'com.github.vungle:vungle-android-sdk:5.3.2'
 
     implementation('com.mopub:mopub-sdk:4.20.0@aar') {
         transitive = true
     }
-    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
     implementation 'com.google.android.gms:play-services-plus:11.8.0'
 }

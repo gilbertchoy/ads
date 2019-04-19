@@ -2,10 +2,12 @@ package com.adviewer.gc.ads;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -13,6 +15,7 @@ public class FirstActivity extends AppCompatActivity {
     Button admobBtn;
     //Button mopubBtn;
     Button vungleBtn;
+    TextView privacyTV;
     Context context = this;
 
     @Override
@@ -24,6 +27,7 @@ public class FirstActivity extends AppCompatActivity {
         admobBtn = findViewById(R.id.admob);
         //mopubBtn = findViewById(R.id.mopub);
         vungleBtn = findViewById(R.id.vungle);
+        privacyTV = findViewById(R.id.textprivacy);
 
         applovinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -46,6 +50,15 @@ public class FirstActivity extends AppCompatActivity {
                 // Perform action on click
                 Intent activityChangeIntent = new Intent(context, VungleActivity.class);
                 FirstActivity.this.startActivity(activityChangeIntent);
+            }
+        });
+
+        privacyTV.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Uri uriUrl = Uri.parse("https://scratcherserver.herokuapp.com/privacypolicyadwatcher/");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
             }
         });
     }

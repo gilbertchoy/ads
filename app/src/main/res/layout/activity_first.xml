@@ -41,4 +41,14 @@
         android:layout_centerHorizontal="true"
         android:text="Test Ads from different Advertising network companies below.  More ad networks and different kinds of ads coming soon." />
 
+    <TextView
+        android:id="@+id/textprivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Privacy Policy" />
+
+
 </RelativeLayout>
