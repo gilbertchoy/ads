@@ -39,12 +39,14 @@ public class AdmobActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.scrollview1);
 
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        MobileAds.initialize(this, "ca-app-pub-6760835969070814~5912740615");
+        //real: ca-app-pub-6760835969070814~5912740615
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-6760835969070814/4954882160");
 
         //ca-app-pub-6760835969070814/4954882160
+        //real:  ca-app-pub-6760835969070814/4954882160
 
         loadAdBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
